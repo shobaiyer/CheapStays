@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources" value="global" />
+ 
+    <package name="default" extends="struts-default" namespace="/">
+    <action name="change">
+            <result >/changePassword.jsp</result>
+        </action>
+        <action name="changePassword" class="com.igate.action.CSAction" >
+            <result name="success">/success.jsp</result>
+    		<result name="input">/changePassword.jsp</result>
+         	<result name="error">/error1.jsp</result>
+        </action>
+        
+        <action name="locale" class="com.igate.action.locale.CSLocaleAction">
+            <result name="success">/changePassword.jsp</result>
+        </action>
+        <action name="download" class="com.igate.action.DownloadAction">
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="timer" />
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="HotelDetails.docx"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<action name="download1" class="com.igate.action.DownloadActionPDF">
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="timer" />
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="bill.pdf"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<action name="fileUploadAction" class="com.igate.action.FileUploadAction" method="display">
+			<result name="none">admin/result.jsp</result>
+		</action>
+		
+		
+		<action name="resultAction" class="com.igate.action.FileUploadAction" method="execute">
+
+			
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+       			<param name="allowedTypes">text/plain</param>
+       			<param name="maximumSize">30240</param>
+  			</interceptor-ref> 
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+    
+			<result name="success">admin/result.jsp</result>
+			<result name="input">admin/index.jsp</result>
+			
+		</action>
+    </package>
+  
+</struts>

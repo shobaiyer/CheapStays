@@ -1,0 +1,46 @@
+		Home Screen
+
+1. image slider
+2. image roll over on header
+3. js validation for search field and login field
+4. js calendar to input date.
+5. disable right click on page to prevent view source or copy paste of images.
+6. logo on the top left of the header.
+7. css menu
+8. sliding login and search buttons
+9. fixed position footer
+10. No copy paste in text fields
+11. custom cursor
+
+		Register Page
+		
+1. image roll over on header
+2. js validations:
+	a. Check for wrong and empty fields
+	b. activating register button only if all the * marked fields are entered AND terms
+	   and conditions are accepted.
+3. Form enclosed within iframe with supportive CSS applied for customizing the scrollbar.
+4.  footer.
+5.  disable right click on page to prevent view source or copy paste of images.
+6. logo on the top left of the header.
+7. css menu
+8. sliding register button.
+10.No copy paste in text fields.
+11. custom cursor
+12. Captcha verification.
+
+		Forgot Password Page
+1. image roll over on header
+2. js validations:
+	a. Check for wrong and empty fields
+	b. activating retrieve button only if all the * marked fields are entered AND rules are read.
+3. 
+4.  footer.
+5.  disable right click on page to prevent view source or copy paste of images.
+6. logo on the top left of the header.
+7. css menu
+8. sliding register button.
+10.No copy paste in text fields.
+11. custom cursor
+12. Captcha verification.	
+13. password sent through emai   
